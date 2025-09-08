@@ -1,0 +1,204 @@
+{
+  "appName": "FinWise",
+  "common": {
+    "cancel": "Cancel",
+    "save": "Save",
+    "update": "Update",
+    "add": "Add",
+    "edit": "Edit",
+    "delete": "Delete",
+    "loading": "Loading...",
+    "error": "Error"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "welcome": "Welcome back",
+    "recentTransactions": "Recent Transactions",
+    "viewAllTransactions": "View All Transactions",
+    "expenseDistribution": "Expense Distribution",
+    "monthlyTrends": "Monthly Trends",
+    "income": "Income",
+    "expenses": "Expenses",
+    "savings": "Savings",
+    "investments": "Investments",
+    "fromLastMonth": "from last month"
+  },
+  "transactions": {
+    "title": "Transactions",
+    "history": "Transaction History",
+    "addTransaction": "Add Transaction",
+    "editTransaction": "Edit Transaction",
+    "addButton": "Add Transaction",
+    "searchPlaceholder": "Search transactions...",
+    "filters": {
+      "button": "Filters",
+      "type": "Type",
+      "category": "Category",
+      "sortBy": "Sort By",
+      "allTypes": "All Types",
+      "allCategories": "All Categories"
+    },
+    "noTransactions": "No transactions found",
+    "table": {
+      "description": "Description",
+      "category": "Category",
+      "date": "Date",
+      "amount": "Amount",
+      "actions": "Actions"
+    },
+    "types": {
+      "income": "Income",
+      "expense": "Expense"
+    },
+    "sort": {
+      "dateDesc": "Date (Newest First)",
+      "dateAsc": "Date (Oldest First)",
+      "amountDesc": "Amount (High to Low)",
+      "amountAsc": "Amount (Low to High)"
+    },
+    "actions": {
+      "edit": "Edit",
+      "delete": "Delete"
+    },
+    "samples": {
+      "grocery": "Grocery Shopping",
+      "groceryDesc": "Weekly groceries from supermarket",
+      "freelance": "Freelance Work",
+      "freelanceDesc": "Website development project",
+      "electricBill": "Electric Bill",
+      "dinner": "Dinner Out",
+      "dinnerDesc": "Italian restaurant with friends",
+      "gas": "Gas Refill",
+      "onlineCourse": "Online Course",
+      "bonus": "Performance Bonus"
+    }
+  },
+  "budgets": {
+    "title": "Budgets",
+    "addButton": "Add Budget",
+    "status": {
+      "over": "Over budget!",
+      "near": "Almost there",
+      "onTrack": "On track",
+      "left": "left",
+      "overBy": "Over by {amount}"
+    },
+    "periods": {
+      "weekly": "Weekly",
+      "monthly": "Monthly",
+      "yearly": "Yearly"
+    },
+    "form": {
+      "name": "Budget Name",
+      "category": "Category",
+      "limit": "Spending Limit",
+      "period": "Budget Period",
+      "errors": {
+        "nameRequired": "Name is required",
+        "validAmount": "Valid amount is required"
+      }
+    }
+  },
+  "goals": {
+    "title": "Savings Goals",
+    "addButton": "Add Goal",
+    "saved": "Saved",
+    "target": "Target",
+    "targetDate": "Target Date",
+    "daysLeft": "Days Left",
+    "days": "days",
+    "reached": "Reached!",
+    "form": {
+      "createTitle": "Add New Goal",
+      "editTitle": "Edit Goal",
+      "title": "Goal Title",
+      "titlePlaceholder": "e.g. Summer Vacation",
+      "targetAmount": "Target Amount",
+      "currentAmount": "Current Amount",
+      "category": "Category",
+      "errors": {
+        "titleRequired": "Title is required",
+        "validAmount": "Valid amount is required",
+        "positiveAmount": "Must be a positive number",
+        "dateRequired": "Target date is required",
+        "futureDate": "Date must be in the future",
+        "amountExceeded": "Cannot exceed target amount"
+      }
+    },
+    "examples": {
+      "vacation": "Summer Vacation",
+      "laptop": "New Laptop",
+      "emergency": "Emergency Fund"
+    }
+  },
+  "categories": {
+    "food": "Food",
+    "transport": "Transport",
+    "shopping": "Shopping",
+    "housing": "Housing",
+    "entertainment": "Entertainment",
+    "health": "Health",
+    "education": "Education",
+    "salary": "Salary",
+    "other": "Other",
+    "savings": "Savings",
+    "travel": "Travel",
+    "electronics": "Electronics",
+    "home": "Home",
+    "vehicle": "Vehicle"
+  },
+  "months": {
+    "jan": "Jan",
+    "feb": "Feb",
+    "mar": "Mar",
+    "apr": "Apr",
+    "may": "May",
+    "jun": "Jun",
+    "jul": "Jul",
+    "aug": "Aug",
+    "sep": "Sep",
+    "oct": "Oct",
+    "nov": "Nov",
+    "dec": "Dec"
+  },
+  "errors": {
+    "fetchDashboard": "Error loading dashboard data",
+    "fetchTransactions": "Error loading transactions",
+    "fetchGoals": "Error loading goals",
+    "fetchBudgets": "Error loading budgets"
+  },
+  "settings": {
+    "title": "Settings",
+    "profileSettings": "Profile Settings",
+    "fullName": "Full Name",
+    "email": "Email Address",
+    "currency": "Currency",
+    "language": "Language",
+    "notifications": "Notifications",
+    "enableNotifications": "Enable Notifications",
+    "notificationsDescription": "Receive important account notifications",
+    "weeklyReports": "Weekly Reports",
+    "weeklyReportsDescription": "Get weekly financial summaries by email",
+    "saveChanges": "Save Changes",
+    "saving": "Saving...",
+    "successMessage": "Settings saved successfully!"
+  },
+  "currencies": {
+    "usd": "US Dollar (USD)",
+    "eur": "Euro (EUR)",
+    "gbp": "British Pound (GBP)",
+    "jpy": "Japanese Yen (JPY)",
+    "sar": "Saudi Riyal (SAR)",
+    "etb": "Ethiopian Birr (ETB)"
+  },
+  "languages": {
+    "en": "English",
+    "ar": "Arabic",
+    "am": "Amharic",
+    "es": "Spanish",
+    "fr": "French",
+    "de": "German"
+  },
+  "currency": "USD",
+  "locale": "en-US"
+}

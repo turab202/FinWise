@@ -1,0 +1,204 @@
+{
+  "appName": "ፋይን ዋይዝ",
+  "common": {
+    "cancel": "ሰርዝ",
+    "save": "አስቀምጥ",
+    "update": "አዘምን",
+    "add": "ጨምር",
+    "edit": "አርትዕ",
+    "delete": "ሰርዝ",
+    "loading": "በመጫን ላይ...",
+    "error": "ስህተት"
+  },
+  "dashboard": {
+    "title": "ዳሽቦርድ",
+    "welcome": "እንኳን ደህና መጡ",
+    "recentTransactions": "የቅርብ ግብይቶች",
+    "viewAllTransactions": "ሁሉንም ግብይቶች ይመልከቱ",
+    "expenseDistribution": "ወጪ ስርጭት",
+    "monthlyTrends": "ወርሃዊ አዝማሚያዎች",
+    "income": "ገቢ",
+    "expenses": "ወጪዎች",
+    "savings": "ክፍያ",
+    "investments": "ኢንቨስትመንቶች",
+    "fromLastMonth": "ከያዘው ወር"
+  },
+  "transactions": {
+    "title": "የግብይት ታሪክ",
+    "history": "የግብይት ታሪክ",
+    "addTransaction": "ግብይት ያክሉ",
+    "editTransaction": "ግብይት ያርትዑ",
+    "addButton": "ግብይት ያክሉ",
+    "searchPlaceholder": "ግብይቶችን ይፈልጉ...",
+    "filters": {
+      "button": "ማጣሪያዎች",
+      "type": "ዓይነት",
+      "category": "ምድብ",
+      "sortBy": "በማስተካከል",
+      "allTypes": "ሁሉም ዓይነቶች",
+      "allCategories": "ሁሉም ምድቦች"
+    },
+    "noTransactions": "ምንም ግብይቶች አልተገኙም",
+    "table": {
+      "description": "መግለጫ",
+      "category": "ምድብ",
+      "date": "ቀን",
+      "amount": "መጠን",
+      "actions": "ድርጊቶች"
+    },
+    "types": {
+      "income": "ገቢ",
+      "expense": "ወጪ"
+    },
+    "sort": {
+      "dateDesc": "ቀን (አዲስ በመጀመሪያ)",
+      "dateAsc": "ቀን (የቆየ በመጀመሪያ)",
+      "amountDesc": "መጠን (ከፍተኛ ወደ ዝቅተኛ)",
+      "amountAsc": "መጠን (ዝቅተኛ ወደ ከፍተኛ)"
+    },
+    "actions": {
+      "edit": "አርትዕ",
+      "delete": "ሰርዝ"
+    },
+    "samples": {
+      "grocery": "የግቢ ግዢ",
+      "groceryDesc": "ከሱቅ ሳቦ ሳይለው የሳምንት ግቢ",
+      "freelance": "ነፃ ስራ",
+      "freelanceDesc": "የድረገፅ የልማት ፕሮጀክት",
+      "electricBill": "የኤሌክትሪክ ተከፋይ",
+      "dinner": "የምሽት ምግብ",
+      "dinnerDesc": "ከጓደኞች ጋር የጣልያን ሬስቶራንት",
+      "gas": "የነዳጅ መሙያ",
+      "onlineCourse": "የመስመር ላይ ኮርስ",
+      "bonus": "የአፈፃፀም ጉርሻ"
+    }
+  },
+  "budgets": {
+    "title": "በጀቶች",
+    "addButton": "በጀት ጨምር",
+    "status": {
+      "over": "በጀቱ ተለፍቷል!",
+      "near": "በቅርብ ላይ",
+      "onTrack": "በትክክለኛው መንገድ ላይ",
+      "left": "ቀርቷል",
+      "overBy": "በ {amount} ተለፍቷል"
+    },
+    "periods": {
+      "weekly": "በሳምንት",
+      "monthly": "በወር",
+      "yearly": "በአመት"
+    },
+    "form": {
+      "name": "የበጀት ስም",
+      "category": "ምድብ",
+      "limit": "የምርቃት ገደብ",
+      "period": "የበጀት ጊዜ",
+      "errors": {
+        "nameRequired": "ስም ያስፈልጋል",
+        "validAmount": "የሚሰራ መጠን ያስፈልጋል"
+      }
+    }
+  },
+  "goals": {
+    "title": "የቁጠባ ግቦች",
+    "addButton": "ግብ ጨምር",
+    "saved": "ተቀምጧል",
+    "target": "ግብ",
+    "targetDate": "የግብ ቀን",
+    "daysLeft": "የቀሩ ቀናት",
+    "days": "ቀናት",
+    "reached": "ደርሷል!",
+    "form": {
+      "createTitle": "አዲስ ግብ ጨምር",
+      "editTitle": "ግብ አርትዕ",
+      "title": "የግብ ርዕስ",
+      "titlePlaceholder": "ምሳ. የበጋ በዓል",
+      "targetAmount": "የግብ መጠን",
+      "currentAmount": "የአሁኑ መጠን",
+      "category": "ምድብ",
+      "errors": {
+        "titleRequired": "ርዕስ ያስፈልጋል",
+        "validAmount": "የሚሰራ መጠን ያስፈልጋል",
+        "positiveAmount": "አዎንታዊ ቁጥር መሆን አለበት",
+        "dateRequired": "የግብ ቀን ያስፈልጋል",
+        "futureDate": "ቀኑ በወደፊት መሆን አለበት",
+        "amountExceeded": "የግብ መጠን ሊበልጥ አይችልም"
+      }
+    },
+    "examples": {
+      "vacation": "የበጋ በዓል",
+      "laptop": "አዲስ ላፕቶፕ",
+      "emergency": "አደገኛ ፈንድ"
+    }
+  },
+  "categories": {
+    "food": "ምግብ",
+    "transport": "ትራንስፖርት",
+    "shopping": "ግዢ",
+    "housing": "መኖሪያ",
+    "entertainment": "አዝናኝ",
+    "health": "ጤና",
+    "education": "ትምህርት",
+    "salary": "ደሞዝ",
+    "other": "ሌላ",
+    "savings": "ቁጠባ",
+    "travel": "ጉዞ",
+    "electronics": "ኤሌክትሮኒክስ",
+    "home": "ቤት",
+    "vehicle": "ተሽከርካሪ"
+  },
+  "months": {
+    "jan": "ጃንዩ",
+    "feb": "ፌብሩ",
+    "mar": "ማርች",
+    "apr": "ኤፕሪል",
+    "may": "ሜይ",
+    "jun": "ጁን",
+    "jul": "ጁላይ",
+    "aug": "ኦገስት",
+    "sep": "ሴፕቴምበር",
+    "oct": "ኦክቶበር",
+    "nov": "ኖቬምበር",
+    "dec": "ዲሴምበር"
+  },
+  "errors": {
+    "fetchDashboard": "ዳሽቦርድ ዳታ ማምጣት ላይ ስህተት",
+    "fetchTransactions": "ግብይቶችን ለማምጣት ስህተት",
+    "fetchGoals": "ግቦችን ለማምጣት ስህተት",
+    "fetchBudgets": "በጀቶችን ለማምጣት ስህተት"
+  },
+  "settings": {
+    "title": "ማስተካከያዎች",
+    "profileSettings": "መገለጫ ማስተካከያዎች",
+    "fullName": "ሙሉ ስም",
+    "email": "ኢሜይል",
+    "currency": "ምንዛሪ",
+    "language": "ቋንቋ",
+    "notifications": "ማሳወቂያዎች",
+    "enableNotifications": "ማሳወቂያዎችን አብራ",
+    "notificationsDescription": "አስፈላጊ የመለያ ማሳወቂያዎችን ይቀበሉ",
+    "weeklyReports": "የሳምንት ድምር",
+    "weeklyReportsDescription": "በኢሜይል የሳምንት የፋይናንስ ማጠቃለያዎችን ያግኙ",
+    "saveChanges": "ለውጦችን አስቀምጥ",
+    "saving": "በመቀመጥ �ይ...",
+    "successMessage": "ማስተካከያዎች በተሳካ ሁኔታ ተቀምጠዋል!"
+  },
+  "currencies": {
+    "usd": "አሜሪካን �ዶላር (USD)",
+    "eur": "ዩሮ (EUR)",
+    "gbp": "ብሪቲሽ ፓውንድ (GBP)",
+    "jpy": "ጃፓንኛ የን (JPY)",
+    "sar": "ሳውዲ ሪያል (SAR)",
+    "etb": "ኢትዮጵያ ብር (ETB)"
+  },
+  "languages": {
+    "en": "እንግሊዝኛ",
+    "ar": "ዐረብኛ",
+    "am": "አማርኛ",
+    "es": "ስፓኒሽ",
+    "fr": "ፈረንሳይኛ",
+    "de": "ጀርመን"
+  },
+  "currency": "ETB",
+  "locale": "am-ET"
+}

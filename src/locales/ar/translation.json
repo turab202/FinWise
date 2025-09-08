@@ -1,0 +1,204 @@
+{
+  "appName": "فاين وايز",
+  "common": {
+    "cancel": "إلغاء",
+    "save": "حفظ",
+    "update": "تحديث",
+    "add": "إضافة",
+    "edit": "تعديل",
+    "delete": "حذف",
+    "loading": "جاري التحميل...",
+    "error": "خطأ"
+  },
+  "dashboard": {
+    "title": "لوحة التحكم",
+    "welcome": "مرحباً بعودتك",
+    "recentTransactions": "المعاملات الأخيرة",
+    "viewAllTransactions": "عرض جميع المعاملات",
+    "expenseDistribution": "توزيع المصروفات",
+    "monthlyTrends": "الاتجاهات الشهرية",
+    "income": "الدخل",
+    "expenses": "المصروفات",
+    "savings": "المدخرات",
+    "investments": "الاستثمارات",
+    "fromLastMonth": "من الشهر الماضي"
+  },
+  "transactions": {
+    "title": "سجل المعاملات",
+    "history": "سجل المعاملات",
+    "addTransaction": "إضافة معاملة",
+    "editTransaction": "تعديل المعاملة",
+    "addButton": "إضافة معاملة",
+    "searchPlaceholder": "ابحث عن المعاملات...",
+    "filters": {
+      "button": "المرشحات",
+      "type": "النوع",
+      "category": "الفئة",
+      "sortBy": "ترتيب حسب",
+      "allTypes": "جميع الأنواع",
+      "allCategories": "جميع الفئات"
+    },
+    "noTransactions": "لا توجد معاملات",
+    "table": {
+      "description": "الوصف",
+      "category": "الفئة",
+      "date": "التاريخ",
+      "amount": "المبلغ",
+      "actions": "الإجراءات"
+    },
+    "types": {
+      "income": "دخل",
+      "expense": "مصروف"
+    },
+    "sort": {
+      "dateDesc": "التاريخ (الأحدث أولاً)",
+      "dateAsc": "التاريخ (الأقدم أولاً)",
+      "amountDesc": "المبلغ (من الأعلى للأقل)",
+      "amountAsc": "المبلغ (من الأقل للأعلى)"
+    },
+    "actions": {
+      "edit": "تعديل",
+      "delete": "حذف"
+    },
+    "samples": {
+      "grocery": "تسوق البقالة",
+      "groceryDesc": "بقالة أسبوعية من السوبر ماركت",
+      "freelance": "عمل حر",
+      "freelanceDesc": "مشروع تطوير موقع ويب",
+      "electricBill": "فاتورة الكهرباء",
+      "dinner": "عشاء بالخارج",
+      "dinnerDesc": "مطعم إيطالي مع الأصدقاء",
+      "gas": "تعبئة وقود",
+      "onlineCourse": "دورة تدريبية عبر الإنترنت",
+      "bonus": "مكافأة أداء"
+    }
+  },
+  "budgets": {
+    "title": "الميزانيات",
+    "addButton": "إضافة ميزانية",
+    "status": {
+      "over": "تجاوز الميزانية!",
+      "near": "تقريباً هناك",
+      "onTrack": "على المسار الصحيح",
+      "left": "متبقي",
+      "overBy": "تجاوز بمقدار {amount}"
+    },
+    "periods": {
+      "weekly": "أسبوعي",
+      "monthly": "شهري",
+      "yearly": "سنوي"
+    },
+    "form": {
+      "name": "اسم الميزانية",
+      "category": "الفئة",
+      "limit": "حد الإنفاق",
+      "period": "فترة الميزانية",
+      "errors": {
+        "nameRequired": "الاسم مطلوب",
+        "validAmount": "مبلغ صالح مطلوب"
+      }
+    }
+  },
+  "goals": {
+    "title": "أهداف التوفير",
+    "addButton": "إضافة هدف",
+    "saved": "محفوظ",
+    "target": "الهدف",
+    "targetDate": "تاريخ الهدف",
+    "daysLeft": "الأيام المتبقية",
+    "days": "أيام",
+    "reached": "تم الوصول!",
+    "form": {
+      "createTitle": "إضافة هدف جديد",
+      "editTitle": "تعديل الهدف",
+      "title": "عنوان الهدف",
+      "titlePlaceholder": "مثال: إجازة صيفية",
+      "targetAmount": "المبلغ المستهدف",
+      "currentAmount": "المبلغ الحالي",
+      "category": "الفئة",
+      "errors": {
+        "titleRequired": "العنوان مطلوب",
+        "validAmount": "مبلغ صالح مطلوب",
+        "positiveAmount": "يجب أن يكون رقمًا موجبًا",
+        "dateRequired": "تاريخ الهدف مطلوب",
+        "futureDate": "يجب أن يكون التاريخ في المستقبل",
+        "amountExceeded": "لا يمكن تجاوز المبلغ المستهدف"
+      }
+    },
+    "examples": {
+      "vacation": "إجازة صيفية",
+      "laptop": "كمبيوتر محمول جديد",
+      "emergency": "صندوق الطوارئ"
+    }
+  },
+  "categories": {
+    "food": "طعام",
+    "transport": "مواصلات",
+    "shopping": "تسوق",
+    "housing": "سكن",
+    "entertainment": "ترفيه",
+    "health": "صحة",
+    "education": "تعليم",
+    "salary": "راتب",
+    "other": "أخرى",
+    "savings": "مدخرات",
+    "travel": "سفر",
+    "electronics": "إلكترونيات",
+    "home": "منزل",
+    "vehicle": "مركبة"
+  },
+  "months": {
+    "jan": "يناير",
+    "feb": "فبراير",
+    "mar": "مارس",
+    "apr": "أبريل",
+    "may": "مايو",
+    "jun": "يونيو",
+    "jul": "يوليو",
+    "aug": "أغسطس",
+    "sep": "سبتمبر",
+    "oct": "أكتوبر",
+    "nov": "نوفمبر",
+    "dec": "ديسمبر"
+  },
+  "errors": {
+    "fetchDashboard": "خطأ في تحميل بيانات لوحة التحكم",
+    "fetchTransactions": "خطأ في تحميل المعاملات",
+    "fetchGoals": "خطأ في تحميل الأهداف",
+    "fetchBudgets": "خطأ في تحميل الميزانيات"
+  },
+  "settings": {
+    "title": "الإعدادات",
+    "profileSettings": "إعدادات الملف الشخصي",
+    "fullName": "الاسم الكامل",
+    "email": "البريد الإلكتروني",
+    "currency": "العملة",
+    "language": "اللغة",
+    "notifications": "الإشعارات",
+    "enableNotifications": "تمكين الإشعارات",
+    "notificationsDescription": "تلقي إشعارات مهمة عن الحساب",
+    "weeklyReports": "التقارير الأسبوعية",
+    "weeklyReportsDescription": "الحصول على ملخصات مالية أسبوعية عبر البريد الإلكتروني",
+    "saveChanges": "حفظ التغييرات",
+    "saving": "جاري الحفظ...",
+    "successMessage": "تم حفظ الإعدادات بنجاح!"
+  },
+  "currencies": {
+    "usd": "الدولار الأمريكي (USD)",
+    "eur": "اليورو (EUR)",
+    "gbp": "الجنيه الإسترليني (GBP)",
+    "jpy": "الين الياباني (JPY)",
+    "sar": "الريال السعودي (SAR)",
+    "etb": "البر الإثيوبي (ETB)"
+  },
+  "languages": {
+    "en": "الإنجليزية",
+    "ar": "العربية",
+    "am": "الأمهرية",
+    "es": "الإسبانية",
+    "fr": "الفرنسية",
+    "de": "الألمانية"
+  },
+  "currency": "SAR",
+  "locale": "ar-SA"
+}
