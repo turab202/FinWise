@@ -8,13 +8,20 @@ import AnimatedHeader from '../components/ui/AnimatedHeader';
 import GlassCard from '../components/ui/GlassCard';
 import LoadingSpinner from '../components/ui/LoadingSpinner';
 import { useAuth } from '../contexts/AuthContext';
-import api from '../utils/api'; // Reuse your existing api axios instance
+import api from '../utils/api';
 
 const Dashboard = () => {
   const [loading, setLoading] = useState(true);
   const [dashboardData, setDashboardData] = useState(null);
   const { t } = useTranslation();
   const { currentUser } = useAuth();
+
+  // Helper function to handle translations with proper fallbacks
+  const translateWithFallback = (key, fallback) => {
+    const translation = t(key);
+    // If the translation returns the same key (meaning not found), use fallback
+    return translation === key ? fallback : translation;
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -29,7 +36,6 @@ const Dashboard = () => {
       try {
         const token = localStorage.getItem('finwise_token');
 
-        // Fetch dashboard info and user goals in parallel
         const [dashboardRes, goalsRes] = await Promise.all([
           fetch(`${import.meta.env.VITE_API_URL}/dashboard`, {
             headers: {
@@ -37,7 +43,7 @@ const Dashboard = () => {
               'Authorization': `Bearer ${token}`,
             },
           }),
-          api.get('/goals'), // fetch all user goals
+          api.get('/goals'),
         ]);
 
         if (!dashboardRes.ok) {
@@ -47,38 +53,36 @@ const Dashboard = () => {
         const dashboardJson = await dashboardRes.json();
         const goals = goalsRes.data;
 
-        // Calculate total savings from goals
         const totalSavings = goals.reduce(
           (sum, goal) => sum + (parseFloat(goal.currentAmount) || 0),
           0
         );
 
-        // Merge savings into dashboard data
         const data = {
           ...dashboardJson,
           savings: totalSavings,
         };
 
-        // Translate transactions and categories if needed
+        // Translate transactions and categories with proper fallbacks
         if (data.recentTransactions) {
           data.recentTransactions = data.recentTransactions.map(tx => ({
             ...tx,
-            title: t(`transactions.${tx.title}`),
-            category: t(`categories.${tx.category}`),
+            title: translateWithFallback(`transactions.${tx.title}`, tx.title),
+            category: translateWithFallback(`categories.${tx.category}`, tx.category),
           }));
         }
 
         if (data.expenseDistribution) {
           data.expenseDistribution = data.expenseDistribution.map(item => ({
             ...item,
-            name: t(`categories.${item.name}`),
+            name: translateWithFallback(`categories.${item.name}`, item.name),
           }));
         }
 
         if (data.monthlyTrends) {
           data.monthlyTrends = data.monthlyTrends.map(item => ({
             ...item,
-            name: t(`months.${item.name}`),
+            name: translateWithFallback(`months.${item.name}`, item.name),
           }));
         }
 
