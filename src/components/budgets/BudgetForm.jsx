@@ -65,7 +65,7 @@ const BudgetForm = ({ onSubmit, initialData, onCancel }) => {
       className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 shadow-xl"
     >
       <h2 className="text-xl font-bold text-white mb-6">
-        {initialData ? t('budgets.form.editTitle') : t('budgets.form.createTitle')}
+        {initialData ? t('common.edit') : t('common.add')} {t('budgets.title')}
       </h2>
       
       <form onSubmit={handleSubmit} className="space-y-4">
@@ -84,7 +84,7 @@ const BudgetForm = ({ onSubmit, initialData, onCancel }) => {
               value={formData.name}
               onChange={handleChange}
               className={`pl-10 w-full px-4 py-2 rounded-lg bg-white/5 border ${errors.name ? 'border-red-500' : 'border-gray-600'} focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition-all duration-200 text-white`}
-              placeholder={t('budgets.form.namePlaceholder')}
+              placeholder={t('budgets.form.name')}
             />
           </div>
           {errors.name && <p className="mt-1 text-sm text-red-400">{errors.name}</p>}
@@ -116,7 +116,7 @@ const BudgetForm = ({ onSubmit, initialData, onCancel }) => {
 
         <div>
           <label htmlFor="amount" className="block text-sm font-medium text-gray-300 mb-1">
-            {t('budgets.form.amount')}
+            {t('budgets.form.limit')}
           </label>
           <div className="relative">
             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -165,13 +165,13 @@ const BudgetForm = ({ onSubmit, initialData, onCancel }) => {
             onClick={onCancel}
             className="px-4 py-2 rounded-lg border border-gray-600 text-gray-300 hover:bg-white/5 transition-colors"
           >
-            {t('budgets.form.cancel')}
+            {t('common.cancel')}
           </button>
           <button
             type="submit"
             className="px-4 py-2 rounded-lg bg-gradient-to-r from-purple-600 to-blue-500 text-white hover:from-purple-700 hover:to-blue-600 transition-all shadow-md"
           >
-            {initialData ? t('budgets.form.update') : t('budgets.form.create')}
+            {initialData ? t('common.update') : t('common.save')}
           </button>
         </div>
       </form>

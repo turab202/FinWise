@@ -27,10 +27,14 @@ const GoalForm = ({ onSubmit, initialData, onCancel }) => {
     }
   }, [initialData]);
 
-  const categories = Object.entries(t('categories', { returnObjects: true })).map(([value, label]) => ({
+  // Get categories from translation file
+  const categories = [
+    'food', 'transport', 'shopping', 'housing', 'entertainment',
+    'health', 'education', 'salary', 'other', 'savings', 'travel',
+    'electronics', 'home', 'vehicle'
+  ].map(value => ({
     value,
-    label,
-    icon: <Bookmark size={16} />
+    label: t(value)
   }));
 
   const validateForm = () => {
@@ -59,20 +63,18 @@ const GoalForm = ({ onSubmit, initialData, onCancel }) => {
     }));
   };
 
-const handleSubmit = (e) => {
-  e.preventDefault();
-  if (validateForm()) {
-    onSubmit({
-      title: formData.title.trim(),
-      category: formData.category,
-      targetAmount: parseFloat(formData.targetAmount) || 0,
-      currentAmount: parseFloat(formData.currentAmount) || 0,
-      targetDate: new Date(formData.targetDate).toISOString(), // <-- send ISO
-    });
-  }
-};
-
-
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (validateForm()) {
+      onSubmit({
+        title: formData.title.trim(),
+        category: formData.category,
+        targetAmount: parseFloat(formData.targetAmount) || 0,
+        currentAmount: parseFloat(formData.currentAmount) || 0,
+        targetDate: new Date(formData.targetDate).toISOString(),
+      });
+    }
+  };
 
   return (
     <motion.div 
@@ -83,7 +85,7 @@ const handleSubmit = (e) => {
     >
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-xl font-semibold text-white">
-          {initialData ? t('goals.form.editTitle') : t('goals.form.createTitle')}
+          {initialData ? t('common.edit') : t('common.add')} {t('goals.title')}
         </h2>
         <button 
           onClick={onCancel}
@@ -157,7 +159,7 @@ const handleSubmit = (e) => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
             <label className="block text-sm font-medium text-gray-300 mb-1">
-              {t('goals.form.targetDate')}
+              {t('goals.targetDate')}
             </label>
             <div className="relative">
               <input
@@ -210,7 +212,7 @@ const handleSubmit = (e) => {
             whileTap={{ scale: 0.97 }}
             className="px-4 py-2 rounded-lg bg-gradient-to-r from-purple-600 to-blue-500 text-white hover:from-purple-700 hover:to-blue-600 transition-all shadow-md"
           >
-            {initialData ? t('common.update') : t('common.add')} {t('goals.title')}
+            {initialData ? t('common.update') : t('common.save')}
           </motion.button>
         </div>
       </form>

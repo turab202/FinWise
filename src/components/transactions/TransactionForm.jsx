@@ -21,16 +21,17 @@ const TransactionForm = ({ onSubmit, initialData, onCancel }) => {
   const [errors, setErrors] = useState({});
 
   const categories = [
-    { value: 'food', label: t('categories.food') },
-    { value: 'transport', label: t('categories.transport') },
-    { value: 'shopping', label: t('categories.shopping') },
-    { value: 'housing', label: t('categories.housing') },
-    { value: 'entertainment', label: t('categories.entertainment') },
-    { value: 'health', label: t('categories.health') },
-    { value: 'education', label: t('categories.education') },
-    { value: 'salary', label: t('categories.salary') },
-    { value: 'other', label: t('categories.other') },
-  ];
+  { value: 'food', label: t('transactions.categories.food') },
+  { value: 'transport', label: t('transactions.categories.transport') },
+  { value: 'shopping', label: t('transactions.categories.shopping') },
+  { value: 'housing', label: t('transactions.categories.housing') },
+  { value: 'entertainment', label: t('transactions.categories.entertainment') },
+  { value: 'health', label: t('transactions.categories.health') },
+  { value: 'education', label: t('transactions.categories.education') },
+  { value: 'salary', label: t('transactions.categories.salary') },
+  { value: 'other', label: t('transactions.categories.other') },
+];
+
 
   const validate = () => {
     const newErrors = {};

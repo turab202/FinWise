@@ -30,6 +30,20 @@ const BudgetProgress = ({ name, spent, limit, category }) => {
     return 'text-green-400';
   };
 
+  // Get currency symbol based on locale
+  const getCurrencySymbol = () => {
+    const currency = t('currency');
+    const symbols = {
+      'USD': '$',
+      'EUR': '€',
+      'GBP': '£',
+      'JPY': '¥',
+      'SAR': '﷼',
+      'ETB': 'ብር'
+    };
+    return symbols[currency] || '$';
+  };
+
   return (
     <motion.div
       whileHover={{ y: -2 }}
@@ -38,7 +52,7 @@ const BudgetProgress = ({ name, spent, limit, category }) => {
       <div className="flex justify-between items-start mb-2">
         <div>
           <h3 className="font-medium text-white">{name}</h3>
-          <p className="text-sm text-gray-400 capitalize">{category}</p>
+          <p className="text-sm text-gray-400 capitalize">{t(category)}</p>
         </div>
         <span className={`text-xs font-medium ${getStatusColor()}`}>
           {getStatusText()}
@@ -47,8 +61,8 @@ const BudgetProgress = ({ name, spent, limit, category }) => {
 
       <div className="mb-2">
         <div className="flex justify-between text-xs text-gray-400 mb-1">
-          <span>{t('currencySymbol')}{safeSpent.toFixed(2)}</span>
-          <span>{t('currencySymbol')}{safeLimit.toFixed(2)}</span>
+          <span>{getCurrencySymbol()}{safeSpent.toFixed(2)}</span>
+          <span>{getCurrencySymbol()}{safeLimit.toFixed(2)}</span>
         </div>
         <div className="w-full bg-gray-700 rounded-full h-2">
           <motion.div
@@ -63,8 +77,8 @@ const BudgetProgress = ({ name, spent, limit, category }) => {
       <div className="flex justify-between text-xs">
         <span className="text-gray-400">
           {isOverBudget
-            ? `${t('currencySymbol')}${(safeSpent - safeLimit).toFixed(2)} ${t('budgets.status.over')}`
-            : `${t('currencySymbol')}${(safeLimit - safeSpent).toFixed(2)} ${t('budgets.status.left')}`}
+            ? `${getCurrencySymbol()}${(safeSpent - safeLimit).toFixed(2)} ${t('budgets.status.overBy', { amount: (safeSpent - safeLimit).toFixed(2) })}`
+            : `${getCurrencySymbol()}${(safeLimit - safeSpent).toFixed(2)} ${t('budgets.status.left')}`}
         </span>
         <span className="text-white">{percentage.toFixed(0)}%</span>
       </div>

@@ -76,9 +76,9 @@ const formatCurrency = (amount) => {
               </div>
               <div>
                 <h4 className="text-sm font-medium text-white">{transaction.title}</h4>
-                <p className="text-xs text-gray-400">
-                  {formatDate(transaction.date)} • {t(`categories.${transaction.category}`)}
-                </p>
+               <p className="text-xs text-gray-400">
+  {formatDate(transaction.date)} • {t(transaction.category)}
+</p>
               </div>
             </div>
             <div className={`text-sm font-medium ${transaction.type === 'income' ? 'text-green-400' : 'text-red-400'}`}>

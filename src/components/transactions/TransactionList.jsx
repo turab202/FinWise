@@ -13,6 +13,12 @@ const TransactionList = ({ transactions, onEdit, onDelete }) => {
   });
   const [showFilters, setShowFilters] = useState(false);
 
+  const categories = [
+    'food', 'transport', 'shopping', 'housing', 'entertainment',
+    'health', 'education', 'salary', 'other', 'savings', 'travel',
+    'electronics', 'home', 'vehicle'
+  ];
+
   const filteredTransactions = transactions
     .filter((transaction) => {
       const matchesSearch =
@@ -41,14 +47,9 @@ const TransactionList = ({ transactions, onEdit, onDelete }) => {
   const formatCurrency = (amount) => {
     return new Intl.NumberFormat(i18n.language, {
       style: 'currency',
-      currency: 'USD', // Adjust dynamically if needed
+      currency: 'USD',
     }).format(amount);
   };
-
-  const categories = [
-    'food', 'transport', 'shopping', 'housing', 'entertainment', 
-    'health', 'education', 'salary', 'other'
-  ];
 
   const sortOptions = [
     { value: 'date-desc', label: t('transactions.sort.dateDesc') },
@@ -67,7 +68,7 @@ const TransactionList = ({ transactions, onEdit, onDelete }) => {
     { value: 'all', label: t('transactions.filters.allCategories') },
     ...categories.map(cat => ({
       value: cat,
-      label: t(`transactions.categories.${cat}`)
+      label: t(cat)
     }))
   ];
 
@@ -193,7 +194,7 @@ const TransactionList = ({ transactions, onEdit, onDelete }) => {
             <tbody className="divide-y divide-white/10">
               {filteredTransactions.map((transaction) => (
                 <motion.tr
-                  key={transaction._id} // ✅ fixed
+                  key={transaction._id}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.3 }}
@@ -214,7 +215,7 @@ const TransactionList = ({ transactions, onEdit, onDelete }) => {
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div className="text-sm text-gray-300">
-                      {t(`transactions.categories.${transaction.category}`)}
+                      {t(transaction.category)}
                     </div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
