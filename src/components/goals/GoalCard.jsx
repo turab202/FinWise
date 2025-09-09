@@ -35,7 +35,7 @@ const GoalCard = ({ goal }) => {
   };
 
   const formatDate = (date) => {
-    if (!date || isNaN(date.getTime())) return t('common.invalidDate', 'Invalid Date');
+    if (!date || isNaN(date.getTime())) return 'Invalid Date';
     return date.toLocaleDateString(t('locale') || navigator.language || 'en-US', {
       year: 'numeric', month: 'short', day: 'numeric'
     });
@@ -49,7 +49,7 @@ const GoalCard = ({ goal }) => {
       <div className="flex justify-between items-start mb-4">
         <div>
           <h3 className="text-lg font-semibold text-white">{title}</h3>
-          <p className="text-sm text-purple-300 capitalize">{t(category)}</p>
+          <p className="text-sm text-purple-300 capitalize">{t(`categories.${category}`)}</p>
         </div>
         <div className="p-2 rounded-lg bg-white/10">
           <Target className="h-5 w-5 text-purple-300" />
@@ -103,7 +103,7 @@ const GoalCard = ({ goal }) => {
             <CalendarIcon className="h-5 w-5 text-purple-300" />
           </div>
           <div>
-            <p className="text-xs text-gray-400">{daysLeft > 0 ? t('goals.daysLeft') : t('goals.status')}</p>
+            <p className="text-xs text-gray-400">{t('goals.daysLeft')}</p>
             <p className="text-sm font-medium text-white">
               {daysLeft > 0 ? `${daysLeft} ${t('goals.days')}` : t('goals.reached')}
             </p>

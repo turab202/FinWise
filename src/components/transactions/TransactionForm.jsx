@@ -20,25 +20,22 @@ const TransactionForm = ({ onSubmit, initialData, onCancel }) => {
 
   const [errors, setErrors] = useState({});
 
+  // Use categories from root level translation
   const categories = [
-  { value: 'food', label: t('transactions.categories.food') },
-  { value: 'transport', label: t('transactions.categories.transport') },
-  { value: 'shopping', label: t('transactions.categories.shopping') },
-  { value: 'housing', label: t('transactions.categories.housing') },
-  { value: 'entertainment', label: t('transactions.categories.entertainment') },
-  { value: 'health', label: t('transactions.categories.health') },
-  { value: 'education', label: t('transactions.categories.education') },
-  { value: 'salary', label: t('transactions.categories.salary') },
-  { value: 'other', label: t('transactions.categories.other') },
-];
-
+    'food', 'transport', 'shopping', 'housing', 'entertainment',
+    'health', 'education', 'salary', 'other', 'savings', 'travel',
+    'electronics', 'home', 'vehicle'
+  ].map(value => ({
+    value,
+    label: t(value)
+  }));
 
   const validate = () => {
     const newErrors = {};
-    if (!formData.title.trim()) newErrors.title = t('formErrors.titleRequired');
+    if (!formData.title.trim()) newErrors.title = t('transactions.formErrors.titleRequired', 'Title is required');
     if (!formData.amount || isNaN(formData.amount) || parseFloat(formData.amount) <= 0)
-      newErrors.amount = t('formErrors.amountInvalid');
-    if (!formData.date) newErrors.date = t('formErrors.dateRequired');
+      newErrors.amount = t('transactions.formErrors.amountInvalid', 'Valid amount is required');
+    if (!formData.date) newErrors.date = t('transactions.formErrors.dateRequired', 'Date is required');
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -48,7 +45,7 @@ const TransactionForm = ({ onSubmit, initialData, onCancel }) => {
     if (validate()) {
       onSubmit({
         ...formData,
-        _id: initialData?._id, // ✅ include _id for editing
+        _id: initialData?._id,
         amount: parseFloat(formData.amount),
         date: formData.date.toISOString(),
       });
@@ -76,13 +73,13 @@ const TransactionForm = ({ onSubmit, initialData, onCancel }) => {
       className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 shadow-xl max-w-md mx-auto"
     >
       <h2 className="text-xl font-bold text-white mb-6">
-        {initialData ? t('transactions.editTransaction') : t('transactions.addTransaction')}
+        {initialData ? t('common.edit') : t('common.add')} {t('transactions.title')}
       </h2>
       
       <form onSubmit={handleSubmit} className="space-y-4">
         {/* Transaction Type */}
         <div>
-          <label className="block text-sm font-medium text-gray-300 mb-1">{t('transactions.type')}</label>
+          <label className="block text-sm font-medium text-gray-300 mb-1">{t('transactions.types.type')}</label>
           <div className="flex space-x-4">
             <button
               type="button"
@@ -94,7 +91,7 @@ const TransactionForm = ({ onSubmit, initialData, onCancel }) => {
               } transition-colors flex items-center justify-center`}
             >
               <ArrowDown className="h-4 w-4 mr-2" />
-              {t('transactions.expense')}
+              {t('transactions.types.expense')}
             </button>
             <button
               type="button"
@@ -106,14 +103,14 @@ const TransactionForm = ({ onSubmit, initialData, onCancel }) => {
               } transition-colors flex items-center justify-center`}
             >
               <ArrowUp className="h-4 w-4 mr-2" />
-              {t('transactions.income')}
+              {t('transactions.types.income')}
             </button>
           </div>
         </div>
 
         {/* Title */}
         <div>
-          <label htmlFor="title" className="block text-sm font-medium text-gray-300 mb-1">{t('transactions.title')}</label>
+          <label htmlFor="title" className="block text-sm font-medium text-gray-300 mb-1">{t('transactions.table.description')}</label>
           <div className="relative">
             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
               <Type className="h-5 w-5 text-gray-400" />
@@ -127,7 +124,7 @@ const TransactionForm = ({ onSubmit, initialData, onCancel }) => {
               className={`pl-10 w-full px-4 py-2 rounded-lg bg-white/5 border ${
                 errors.title ? 'border-red-500' : 'border-gray-600'
               } focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition-all duration-200 text-white`}
-              placeholder={t('transactions.titlePlaceholder')}
+              placeholder={t('transactions.samples.grocery', 'e.g. Transport, Shopping')}
               maxLength={50}
             />
           </div>
@@ -136,7 +133,7 @@ const TransactionForm = ({ onSubmit, initialData, onCancel }) => {
 
         {/* Amount */}
         <div>
-          <label htmlFor="amount" className="block text-sm font-medium text-gray-300 mb-1">{t('transactions.amount')}</label>
+          <label htmlFor="amount" className="block text-sm font-medium text-gray-300 mb-1">{t('transactions.table.amount')}</label>
           <div className="relative">
             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
               <DollarSign className="h-5 w-5 text-gray-400" />
@@ -159,7 +156,7 @@ const TransactionForm = ({ onSubmit, initialData, onCancel }) => {
 
         {/* Date */}
         <div>
-          <label htmlFor="date" className="block text-sm font-medium text-gray-300 mb-1">{t('transactions.date')}</label>
+          <label htmlFor="date" className="block text-sm font-medium text-gray-300 mb-1">{t('transactions.table.date')}</label>
           <div className="relative">
             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
               <Calendar className="h-5 w-5 text-gray-400" />
@@ -175,7 +172,7 @@ const TransactionForm = ({ onSubmit, initialData, onCancel }) => {
               showYearDropdown
               dropdownMode="select"
               maxDate={new Date()}
-              placeholderText={t('transactions.selectDate')}
+              placeholderText={t('transactions.selectDate', 'Select date')}
             />
           </div>
           {errors.date && <p className="mt-1 text-sm text-red-400">{errors.date}</p>}
@@ -183,7 +180,7 @@ const TransactionForm = ({ onSubmit, initialData, onCancel }) => {
 
         {/* Category */}
         <div>
-          <label htmlFor="category" className="block text-sm font-medium text-gray-300 mb-1">{t('transactions.category')}</label>
+          <label htmlFor="category" className="block text-sm font-medium text-gray-300 mb-1">{t('transactions.table.category')}</label>
           <div className="relative">
             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
               <Tag className="h-5 w-5 text-gray-400" />
@@ -207,7 +204,7 @@ const TransactionForm = ({ onSubmit, initialData, onCancel }) => {
         {/* Description */}
         <div>
           <label htmlFor="description" className="block text-sm font-medium text-gray-300 mb-1">
-            {t('transactions.description')} ({t('common.optional')})
+            {t('transactions.description', 'Description')} ({t('common.optional', 'optional')})
           </label>
           <div className="relative">
             <div className="absolute inset-y-0 left-0 pl-3 pt-3 pointer-events-none">
@@ -220,7 +217,7 @@ const TransactionForm = ({ onSubmit, initialData, onCancel }) => {
               value={formData.description}
               onChange={handleChange}
               className="pl-10 w-full px-4 py-2 rounded-lg bg-white/5 border border-gray-600 focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition-all duration-200 text-white"
-              placeholder={t('transactions.descriptionPlaceholder')}
+              placeholder={t('transactions.samples.groceryDesc', 'e.g. Weekly groceries')}
               maxLength={200}
             />
           </div>

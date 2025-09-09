@@ -1,15 +1,36 @@
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 const SavingsRing = ({ goal }) => {
-  const percentage = Math.min((goal.currentAmount / goal.targetAmount) * 100, 100);
+  const { t, i18n } = useTranslation();
+  
+  // Safe calculations to avoid division by zero
+  const current = parseFloat(goal.currentAmount) || 0;
+  const target = parseFloat(goal.targetAmount) || 1; // Avoid division by zero
+  const percentage = Math.min((current / target) * 100, 100);
   const circumference = 2 * Math.PI * 40;
   const strokeDashoffset = circumference - (percentage / 100) * circumference;
 
   const formatCurrency = (amount) => {
-    return new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD',
-    }).format(amount);
+    const currencyCode = t('currency') || 'USD';
+    const locale = t('locale') || navigator.language || 'en-US';
+    
+    try {
+      return new Intl.NumberFormat(locale, {
+        style: 'currency',
+        currency: currencyCode,
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+      }).format(amount);
+    } catch (e) {
+      // Fallback if currency formatting fails
+      return new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+      }).format(amount);
+    }
   };
 
   return (
@@ -55,7 +76,7 @@ const SavingsRing = ({ goal }) => {
           {percentage.toFixed(0)}%
         </span>
         <span className="text-xs text-gray-400 text-center mt-1">
-          {formatCurrency(goal.currentAmount)} of {formatCurrency(goal.targetAmount)}
+          {formatCurrency(current)} {t('common.of')} {formatCurrency(target)}
         </span>
       </div>
     </motion.div>
