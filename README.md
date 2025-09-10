@@ -48,7 +48,7 @@ FinWise is a **full-stack personal finance tracker** that helps users monitor th
 
 ## ⚙️ Installation & Setup
 Clone the repository:  
-git clone https://github.com/yourusername/finwise.git  
+git clone https://github.com/turab202/finwise.git  
 cd finwise  
 
 Install frontend dependencies:  
