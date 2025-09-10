@@ -42,9 +42,8 @@ const Budgets = () => {
     }
   };
 
-  // ✅ Fetch budgets only after auth is ready
   useEffect(() => {
-    if (authLoading) return; // wait for auth to finish
+    if (authLoading) return;
 
     if (!currentUser) {
       setLoading(false);
@@ -107,7 +106,6 @@ const Budgets = () => {
     setError(null);
   };
 
-  // --- Show auth loading spinner first ---
   if (authLoading || loading) {
     return (
       <div className="flex items-center justify-center h-64">
@@ -132,7 +130,7 @@ const Budgets = () => {
               className="flex items-center text-red-700 hover:text-red-900"
             >
               <RefreshCw className="h-4 w-4 mr-1" />
-              {t("errors.retry")}
+              {t("common.retry", "Retry")}
             </button>
             <button
               onClick={() => setError(null)}
@@ -167,7 +165,6 @@ const Budgets = () => {
               setShowForm(false);
               setEditingBudget(null);
             }}
-            t={t}
           />
         </GlassCard>
       )}
@@ -175,12 +172,14 @@ const Budgets = () => {
       <GlassCard>
         {budgets.length === 0 && !error ? (
           <div className="text-center py-8">
-            <p className="text-gray-500 mb-4">{t("budgets.noBudgets")}</p>
+            <p className="text-gray-500 mb-4">
+              {t("budgets.noBudgets", "No budgets created yet")}
+            </p>
             <button
               onClick={() => setShowForm(true)}
               className="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700"
             >
-              {t("budgets.createFirst")}
+              {t("budgets.createFirst", "Create your first budget")}
             </button>
           </div>
         ) : (
@@ -191,11 +190,10 @@ const Budgets = () => {
                 name={budget.name}
                 spent={budget.spent}
                 limit={budget.limit}
-                category={t(`categories.${budget.category}`)}
-                period={t(`budgets.periods.${budget.period}`)}
+                category={budget.category} // Pass the category value, not translation
+                period={budget.period}
                 onEdit={() => setEditingBudget(budget)}
                 onDelete={() => handleDeleteBudget(budget._id)}
-                t={t}
               />
             ))}
           </div>
