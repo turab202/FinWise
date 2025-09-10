@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion } from 'framer-motion'; 
 import { useTranslation } from 'react-i18next';
 import { Target, Calendar as CalendarIcon, Wallet } from 'lucide-react';
 
@@ -23,9 +23,29 @@ const GoalCard = ({ goal }) => {
     }
   };
 
+  // 🔹 Shorten large numbers (1K, 1M, 1B, 1T)
+  const formatCompact = (amount) => {
+    if (amount >= 1e12) return (amount / 1e12).toFixed(1) + 'T';
+    if (amount >= 1e9) return (amount / 1e9).toFixed(1) + 'B';
+    if (amount >= 1e6) return (amount / 1e6).toFixed(1) + 'M';
+    if (amount >= 1e3) return (amount / 1e3).toFixed(1) + 'K';
+    return amount.toString();
+  };
+
   const formatCurrency = (amount) => {
     const validCurrency = getValidCurrency();
     const locale = t('locale') || navigator.language || 'en-US';
+
+    // Format normally for small numbers, compact for big ones
+    if (amount >= 10000) {
+      return new Intl.NumberFormat(locale, {
+        style: 'currency',
+        currency: validCurrency,
+        notation: 'compact',
+        maximumFractionDigits: 1
+      }).format(amount);
+    }
+
     return new Intl.NumberFormat(locale, {
       style: 'currency',
       currency: validCurrency,
@@ -68,23 +88,27 @@ const GoalCard = ({ goal }) => {
       </div>
 
       <div className="grid grid-cols-2 gap-4">
-        <div className="flex items-center">
+        <div className="flex items-center min-w-0">
           <div className="p-2 rounded-lg bg-white/10 mr-3">
             <Wallet className="h-5 w-5 text-blue-300" />
           </div>
-          <div>
+          <div className="overflow-hidden">
             <p className="text-xs text-gray-400">{t('goals.saved')}</p>
-            <p className="text-sm font-medium text-white">{formatCurrency(current)}</p>
+            <p className="text-sm font-medium text-white truncate">
+              {formatCurrency(current)}
+            </p>
           </div>
         </div>
 
-        <div className="flex items-center">
+        <div className="flex items-center min-w-0">
           <div className="p-2 rounded-lg bg-white/10 mr-3">
             <Target className="h-5 w-5 text-purple-300" />
           </div>
-          <div>
+          <div className="overflow-hidden">
             <p className="text-xs text-gray-400">{t('goals.target')}</p>
-            <p className="text-sm font-medium text-white">{formatCurrency(target)}</p>
+            <p className="text-sm font-medium text-white truncate">
+              {formatCurrency(target)}
+            </p>
           </div>
         </div>
 
