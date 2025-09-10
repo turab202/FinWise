@@ -43,7 +43,8 @@ FinWise is a **full-stack personal finance tracker** that helps users monitor th
 | Authentication | JWT + bcrypt |
 
 ## 📸 Screenshots
-> _Add GIFs or images showing dashboard, transaction list, analytics, and budget tracking_
+<img width="1344" height="633" alt="finewise" src="https://github.com/user-attachments/assets/87b0f48c-fb33-4818-a7ae-b6e56a75ec71" />
+
 
 ## ⚙️ Installation & Setup
 Clone the repository:  
