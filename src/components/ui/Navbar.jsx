@@ -18,13 +18,9 @@ const Navbar = () => {
     { path: '/settings', icon: Settings, label: t('settings.title', 'Settings') },
   ];
 
-  const isActive = (path) => {
-    return location.pathname === path;
-  };
+  const isActive = (path) => location.pathname === path;
 
-  const toggleMobileMenu = () => {
-    setMobileMenuOpen(!mobileMenuOpen);
-  };
+  const toggleMobileMenu = () => setMobileMenuOpen(!mobileMenuOpen);
 
   return (
     <>
@@ -36,6 +32,8 @@ const Navbar = () => {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
           <div className="flex items-center justify-between h-full">
+            
+            {/* Logo */}
             <div className="flex items-center">
               <Link to="/dashboard" className="flex-shrink-0" onClick={() => setMobileMenuOpen(false)}>
                 <motion.div
@@ -67,6 +65,7 @@ const Navbar = () => {
               </div>
             </div>
 
+            {/* Desktop User Menu + Mobile Toggle */}
             <div className="flex items-center space-x-4">
               <div className="hidden md:block">
                 <UserMenu />
@@ -78,18 +77,14 @@ const Navbar = () => {
                 className="md:hidden p-2 rounded-md text-gray-300 hover:text-white hover:bg-white/5 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
                 aria-label="Toggle menu"
               >
-                {mobileMenuOpen ? (
-                  <X className="h-6 w-6" />
-                ) : (
-                  <Menu className="h-6 w-6" />
-                )}
+                {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
               </button>
             </div>
           </div>
         </div>
       </motion.nav>
 
-      {/* Mobile Navigation Menu - Fixed to top below navbar */}
+      {/* Mobile Navigation Menu */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
@@ -115,17 +110,17 @@ const Navbar = () => {
                   {link.label}
                 </Link>
               ))}
-              
-              {/* Mobile User Menu Item */}
+
+              {/* Mobile User Menu */}
               <div className="px-3 py-3">
-                <UserMenu />
+                <UserMenu isMobile />
               </div>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* Add padding to the top of your main content to prevent navbar overlap */}
+      {/* Prevent content overlap */}
       <div className="pt-16"></div>
     </>
   );
