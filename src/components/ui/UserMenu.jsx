@@ -4,11 +4,39 @@ import { LogOut, User as UserIcon } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 import { Link } from "react-router-dom";
 
-
-const UserMenu = () => {
+const UserMenu = ({ isMobile = false }) => {
   const [isOpen, setIsOpen] = useState(false);
   const { currentUser, logout } = useAuth();
 
+  if (isMobile) {
+    // 📱 Mobile Version (inline, no dropdown)
+    return (
+      <div className="space-y-2">
+        <div className="px-3 py-2 text-sm text-white border-b border-white/10">
+          <div className="font-medium">{currentUser?.name || 'User'}</div>
+          <div className="text-gray-400 truncate">{currentUser?.email || 'user@example.com'}</div>
+        </div>
+
+        <Link
+          to="/settings"
+          className="flex items-center px-3 py-2 text-sm text-gray-300 hover:bg-white/10"
+        >
+          <UserIcon className="h-4 w-4 mr-2" />
+          Profile Settings
+        </Link>
+
+        <button
+          onClick={() => logout()}
+          className="w-full text-left flex items-center px-3 py-2 text-sm text-red-400 hover:bg-white/10"
+        >
+          <LogOut className="h-4 w-4 mr-2" />
+          Sign out
+        </button>
+      </div>
+    );
+  }
+
+  // 💻 Desktop Version (dropdown)
   return (
     <div className="relative ml-3">
       <button
