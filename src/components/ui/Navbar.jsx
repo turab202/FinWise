@@ -112,9 +112,17 @@ const Navbar = () => {
               ))}
 
               {/* Mobile User Menu */}
-              <div className="px-3 py-3">
-                <UserMenu isMobile />
-              </div>
+              {/* Mobile Logout Button */}
+<button
+  onClick={() => {
+    logout(); // call your logout function
+    setMobileMenuOpen(false);
+  }}
+  className="w-full text-left flex items-center px-3 py-3 rounded-md text-base font-medium text-red-400 hover:text-white hover:bg-white/5"
+>
+  <LogOut className="h-5 w-5 mr-3" />
+  Sign out
+</button>
             </div>
           </motion.div>
         )}
