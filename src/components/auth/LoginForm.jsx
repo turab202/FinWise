@@ -1,4 +1,3 @@
-// components/auth/LoginForm.jsx
 import { useState } from 'react';
 import { Lock, Mail, Eye, EyeOff } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -21,11 +20,7 @@ const LoginForm = ({ onLogin, loading }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validate()) {
-      // Log form submission
-      console.log('Login form submitted:', { email, timestamp: new Date().toISOString() });
       onLogin({ email, password });
-    } else {
-      console.log('Login form validation failed:', errors);
     }
   };
 
@@ -44,54 +39,98 @@ const LoginForm = ({ onLogin, loading }) => {
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-6">
+        {/* Email */}
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-1">
+          <label className="block text-sm font-medium text-gray-300 mb-1">
             Email Address
           </label>
           <div className="relative">
-            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-              <Mail className="h-5 w-5 text-gray-400" />
-            </div>
+            <Mail className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
             <input
-              id="email"
-              name="email"
               type="email"
-              autoComplete="email"
               value={email}
-              onChange={(e) => {
-                setEmail(e.target.value);
-                console.log('Email field updated:', e.target.value);
-              }}
-              className={`pl-10 w-full px-4 py-3 rounded-lg bg-white/5 border ${errors.email ? 'border-red-500' : 'border-gray-600'} focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition-all duration-200 text-white`}
+              onChange={(e) => setEmail(e.target.value)}
+              className={`pl-10 w-full px-4 py-3 rounded-lg bg-white/5 border ${
+                errors.email ? 'border-red-500' : 'border-gray-600'
+              } focus:ring-2 focus:ring-purple-500 text-white`}
               placeholder="your@email.com"
             />
           </div>
           {errors.email && <p className="mt-1 text-sm text-red-400">{errors.email}</p>}
         </div>
 
+        {/* Password */}
         <div>
-          <label htmlFor="password" className="block text-sm font-medium text-gray-300 mb-1">
+          <label className="block text-sm font-medium text-gray-300 mb-1">
             Password
           </label>
           <div className="relative">
-            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-              <Lock className="h-5 w-5 text-gray-400" />
-            </div>
+            <Lock className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
             <input
-              id="password"
-              name="password"
-              type={showPassword ? "text" : "password"}
-              autoComplete="current-password"
+              type={showPassword ? 'text' : 'password'}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className={`pl-10 w-full px-4 py-3 rounded-lg bg-white/5 border ${errors.password ? 'border-red-500' : 'border-gray-600'} focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition-all duration-200 text-white`}
+              className={`pl-10 w-full px-4 py-3 rounded-lg bg-white/5 border ${
+                errors.password ? 'border-red-500' : 'border-gray-600'
+              } focus:ring-2 focus:ring-purple-500 text-white`}
               placeholder="••••••••"
             />
             <button
               type="button"
-              className="absolute inset-y-0 right-0 pr-3 flex items-center"
-              onClick={() => {
-                setShowPassword(!showPassword);
+              className="absolute right-3 top-3"
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? (
+                <EyeOff className="h-5 w-5 text-gray-400" />
+              ) : (
+                <Eye className="h-5 w-5 text-gray-400" />
+              )}
+            </button>
+          </div>
+          {errors.password && <p className="mt-1 text-sm text-red-400">{errors.password}</p>}
+        </div>
+
+        {/* Remember + Forgot */}
+        <div className="flex items-center justify-between">
+          <label className="flex items-center text-gray-300 text-sm">
+            <input
+              type="checkbox"
+              className="h-4 w-4 text-purple-600 rounded bg-white/5 border-gray-600"
+            />
+            <span className="ml-2">Remember me</span>
+          </label>
+
+          <Link to="/forgot-password" className="text-sm text-purple-400 hover:text-purple-300">
+            Forgot password?
+          </Link>
+        </div>
+
+        {/* Submit */}
+        <button
+          type="submit"
+          disabled={loading}
+          className={`w-full py-3 px-4 rounded-lg text-white bg-gradient-to-r from-purple-600 to-blue-500 hover:from-purple-700 hover:to-blue-600 transition ${
+            loading ? 'opacity-70 cursor-not-allowed' : ''
+          }`}
+        >
+          {loading ? "Signing in..." : "Sign in"}
+        </button>
+      </form>
+
+      {/* Signup */}
+      <div className="mt-6 text-center">
+        <p className="text-sm text-gray-400">
+          Don't have an account?  
+          <Link to="/signup" className="text-purple-400 hover:text-purple-300 ml-1">
+            Sign up
+          </Link>
+        </p>
+      </div>
+    </motion.div>
+  );
+};
+
+export default LoginForm;                setShowPassword(!showPassword);
                 console.log('Password visibility toggled:', !showPassword);
               }}
             >
