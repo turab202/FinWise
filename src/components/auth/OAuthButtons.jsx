@@ -1,11 +1,16 @@
-// components/OAuthButtons.jsx
 import { motion } from 'framer-motion';
 import { Github, Google } from 'lucide-react';
 
 const OAuthButtons = () => {
   const handleOAuthClick = (provider) => {
-    console.log(`${provider} OAuth button clicked at ${new Date().toISOString()}`);
-    alert(`In production, this would redirect to ${provider} OAuth`);
+    // Redirect to backend OAuth route
+    if (provider === "Google") {
+      window.location.href = `${import.meta.env.VITE_API_URL}/auth/google`;
+    }
+
+    if (provider === "GitHub") {
+      window.location.href = `${import.meta.env.VITE_API_URL}/auth/github`;
+    }
   };
 
   return (
